@@ -7,6 +7,7 @@ import {
   Pressable,
   TouchableOpacity,
   Linking,
+  Image,
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
 import { STORAGE_KEY_HISTORY } from "../utils/helper";
@@ -52,7 +53,8 @@ export const ResultModal = ({
 
         // if expires not specified, the defaultExpires will be applied instead.
         // if set to null, then it will never expire.
-        expires: 1000 * 3600,
+        // expires: 1000 * 3600 * 24 * 10,
+        // expires: 1000 * 60,
       });
       setNeedStorageRefresh(true);
     }
@@ -63,10 +65,12 @@ export const ResultModal = ({
       animationType="slide"
       transparent={true}
       visible={isModalVisible}
+      statusBarTranslucent={true}
       onRequestClose={() => {
         closeAndRescan();
       }}
       onBackdropPress={() => closeAndRescan()}
+      style={{ minWidth: 400 }}
     >
       <Pressable
         style={styles.outsideModal}
@@ -80,12 +84,32 @@ export const ResultModal = ({
           <View style={styles.modalView}>
             <View style={styles.modalHeader}>
               <View style={styles.modalHeaderContent}>
-                <Text style={styles.modalTitle}>
-                  Successfully scanned result
-                </Text>
+                <View>
+                  <Image
+                    source={require("../assets/tick-circle.png")}
+                    resizeMode="contain"
+                    style={{
+                      width: 12,
+                      height: 12,
+                      tintColor: "#6C7EE9",
+                    }}
+                  />
+                </View>
+                <Text style={styles.modalTitle}>Success!</Text>
               </View>
               <TouchableOpacity onPress={() => closeAndRescan()}>
-                <Text style={styles.modalHeaderCloseText}>x</Text>
+                <View>
+                  <Image
+                    source={require("../assets/cancel.png")}
+                    resizeMode="contain"
+                    style={{
+                      width: 12,
+                      height: 12,
+                      tintColor: "#C0C0C0",
+                    }}
+                  />
+                </View>
+                {/* <Text style={styles.modalHeaderCloseText}>x</Text> */}
               </TouchableOpacity>
             </View>
             <View style={styles.modalContent}>
@@ -118,6 +142,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     marginTop: 22,
+    minWidth: 400,
   },
   outsideModal: {
     backgroundColor: "rgba(1, 1, 1, 0.2)",
@@ -160,7 +185,12 @@ const styles = StyleSheet.create({
   },
   /* The header takes up all the vertical space not used by the close button. */
   modalHeaderContent: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
     flexGrow: 1,
+    gap: 4,
+    marginBottom: 16,
   },
   modalTitle: {
     fontWeight: "600",
@@ -179,5 +209,6 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     gap: 8,
     justifyContent: "flex-end",
+    marginTop: 12,
   },
 });

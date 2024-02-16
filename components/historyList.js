@@ -9,7 +9,6 @@ import {
   Linking,
   ToastAndroid,
 } from "react-native";
-// import AsyncStorage from "@react-native-async-storage/async-storage";
 import storage from "../utils/storage";
 import { STORAGE_KEY_HISTORY } from "../utils/helper";
 import { AppStateContext } from "../utils/context";

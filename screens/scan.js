@@ -7,6 +7,7 @@ import {
   Text,
   TouchableOpacity,
   View,
+  Linking,
 } from "react-native";
 import { Camera, CameraView } from "expo-camera/next";
 import { ResultModal } from "../components/resultModal";
@@ -21,7 +22,7 @@ export function Scan(props) {
 
   const askForCameraPermission = () => {
     (async () => {
-      const { status } = await Camera.getCameraPermissionsAsync();
+      const { status } = await Camera.requestCameraPermissionsAsync();
       setHasPermission(status === "granted");
     })();
   };
@@ -44,7 +45,13 @@ export function Scan(props) {
   if (hasPermission === null) {
     return (
       <View style={styles.container}>
-        <Text>Requesting for camera permissionnn</Text>
+        <Text>Requesting for camera permission</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => Linking.openSettings()}
+        >
+          <Text style={styles.textStyle}>Grant permission</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -53,6 +60,12 @@ export function Scan(props) {
     return (
       <View style={styles.container}>
         <Text>No access to camera</Text>
+        <TouchableOpacity
+          style={styles.button}
+          onPress={() => Linking.openSettings()}
+        >
+          <Text style={styles.textStyle}>Grant permission</Text>
+        </TouchableOpacity>
       </View>
     );
   }
@@ -89,7 +102,7 @@ export function Scan(props) {
           />
         </View>
       </TouchableOpacity>
-      <TouchableOpacity
+      {/* <TouchableOpacity
         style={styles.cancelButton}
         onPress={() => props.navigation.goBack(null)}
       >
@@ -99,7 +112,7 @@ export function Scan(props) {
             style={styles.cancelImage}
           />
         </View>
-      </TouchableOpacity>
+      </TouchableOpacity> */}
       <ResultModal
         data={scanData}
         isModalVisible={isModalVisible}
@@ -114,7 +127,7 @@ export function Scan(props) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#fff",
+    backgroundColor: "#f6f6f6",
     alignItems: "center",
     justifyContent: "center",
     position: "relative",
@@ -135,8 +148,8 @@ const styles = StyleSheet.create({
   },
   flashlightButton: {
     position: "absolute",
-    bottom: 30,
-    left: 20,
+    bottom: 150,
+    left: 30,
   },
   viewLightOn: {
     width: 70,
@@ -166,7 +179,7 @@ const styles = StyleSheet.create({
   },
   cancelButton: {
     position: "absolute",
-    bottom: 30,
+    bottom: 150,
     right: 20,
   },
   cancelImage: {
@@ -181,5 +194,16 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.6)",
     justifyContent: "center",
     alignItems: "center",
+  },
+  textStyle: {
+    fontSize: 16,
+    fontWeight: "500",
+    color: "#fff",
+  },
+  button: {
+    borderRadius: 20,
+    padding: 10,
+    backgroundColor: "#6C7EE9",
+    marginTop: 12,
   },
 });

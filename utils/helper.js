@@ -13,3 +13,11 @@ export const getCurrentDateTime = () => {
 };
 
 export const STORAGE_KEY_HISTORY = "qr-history"; // Note: Do not use underscore("_") in key!
+
+export function dateDiff(d1, d2) {
+  var date1 = new Date(d1);
+  var date2 = new Date(d2);
+  var timeDiff = Math.abs(date2.getTime() - date1.getTime());
+  var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
+  return diffDays;
+}

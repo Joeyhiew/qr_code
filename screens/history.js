@@ -5,8 +5,7 @@ import { createMaterialTopTabNavigator } from "@react-navigation/material-top-ta
 import { HistoryList } from "../components/historyList";
 import { NavigationContainer } from "@react-navigation/native";
 import storage from "../utils/storage";
-import { getTodayDate } from "../utils/helper";
-import { STORAGE_KEY_HISTORY } from "../utils/helper";
+import { getTodayDate, STORAGE_KEY_HISTORY, dateDiff } from "../utils/helper";
 import { AppStateContext } from "../utils/context";
 
 const Tab = createMaterialTopTabNavigator();
@@ -17,20 +16,40 @@ export function History() {
   const { needStorageRefresh, setNeedStorageRefresh } =
     useContext(AppStateContext);
 
-  const getAllData = async () => {
-    storage.getAllDataForKey(STORAGE_KEY_HISTORY).then((history) => {
-      const parsedHistory = history;
-      setAllHistoryList(parsedHistory);
-      const temp = [];
-      const today = getTodayDate();
-      parsedHistory.map((dataPoint) => {
-        const dataID = dataPoint.id.split(",")[0] ?? "";
-        if (dataID === today) {
-          temp.push(dataPoint);
-        }
-      });
-      setTodayHistoryList(temp);
+  const deleteRecord = (id) => {
+    storage.remove({
+      key: STORAGE_KEY_HISTORY,
+      id: id,
     });
+  };
+
+  const getAllData = async () => {
+    storage
+      .getAllDataForKey(STORAGE_KEY_HISTORY)
+      .then((history) => {
+        const TodayDate = getTodayDate();
+        const parsedHistory = history.filter((x) => {
+          const xID = x.id.split(",")[0] ?? "";
+          if (dateDiff(xID, TodayDate) > 10) {
+            deleteRecord(x.id);
+            return false;
+          }
+          return true;
+        });
+        setAllHistoryList(parsedHistory);
+        const temp = [];
+        const today = getTodayDate();
+        parsedHistory.map((dataPoint) => {
+          const dataID = dataPoint.id.split(",")[0] ?? "";
+          if (dataID === today) {
+            temp.push(dataPoint);
+          }
+        });
+        setTodayHistoryList(temp);
+      })
+      .catch((e) => {
+        console.log(e);
+      });
     setNeedStorageRefresh(false);
   };
 

@@ -94,7 +94,7 @@ const styles = StyleSheet.create({
   },
   settingsFont: {
     fontSize: 16,
-    fontWeight: "bold",
+    fontWeight: "500",
   },
   button: {
     padding: 4,
