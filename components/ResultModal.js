@@ -9,10 +9,10 @@ import {
   Linking,
 } from "react-native";
 import * as Clipboard from "expo-clipboard";
-import storage from "../Storage";
-import { STORAGE_KEY_HISTORY } from "../Helper";
-import { getCurrentDateTime } from "../Helper";
-import { AppStateContext } from "../Context";
+import { STORAGE_KEY_HISTORY } from "../utils/helper";
+import { getCurrentDateTime } from "../utils/helper";
+import { AppStateContext } from "../utils/context";
+import storage from "../utils/storage";
 
 export const ResultModal = ({
   data,

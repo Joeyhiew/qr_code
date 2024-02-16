@@ -1,7 +1,7 @@
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Scan } from "./screens/scan";
-import { Settings } from "./screens/settings";
-import { History } from "./screens/history";
+import { Scan } from "../screens/scan";
+import { Settings } from "../screens/settings";
+import { History } from "../screens/history";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
 
 const Tab = createBottomTabNavigator();
@@ -57,7 +57,7 @@ export const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
-                source={require("./assets/history-icon.png")}
+                source={require("../assets/history-icon.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,
@@ -78,7 +78,7 @@ export const Tabs = () => {
         options={{
           tabBarIcon: ({ focused }) => (
             <Image
-              source={require("./assets/scan-icon.png")}
+              source={require("../assets/scan-icon.png")}
               resizeMode="contain"
               style={{
                 width: 30,
@@ -97,7 +97,7 @@ export const Tabs = () => {
           tabBarIcon: ({ focused }) => (
             <View style={{ alignItems: "center", justifyContent: "center" }}>
               <Image
-                source={require("./assets/settings-icon.png")}
+                source={require("../assets/settings-icon.png")}
                 resizeMode="contain"
                 style={{
                   width: 25,

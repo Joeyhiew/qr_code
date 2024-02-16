@@ -7,9 +7,9 @@ import {
   Image,
   ToastAndroid,
 } from "react-native";
-import storage from "../Storage";
-import { STORAGE_KEY_HISTORY } from "../Helper";
-import { AppStateContext } from "../Context";
+import storage from "../utils/storage";
+import { STORAGE_KEY_HISTORY } from "../utils/helper";
+import { AppStateContext } from "../utils/context";
 
 export function Settings() {
   const { setNeedStorageRefresh } = useContext(AppStateContext);

@@ -4,10 +4,10 @@ import { TabView, SceneMap } from "react-native-tab-view";
 import { createMaterialTopTabNavigator } from "@react-navigation/material-top-tabs";
 import { HistoryList } from "../components/historyList";
 import { NavigationContainer } from "@react-navigation/native";
-import storage from "../Storage";
-import { getTodayDate } from "../Helper";
-import { STORAGE_KEY_HISTORY } from "../Helper";
-import { AppStateContext } from "../Context";
+import storage from "../utils/storage";
+import { getTodayDate } from "../utils/helper";
+import { STORAGE_KEY_HISTORY } from "../utils/helper";
+import { AppStateContext } from "../utils/context";
 
 const Tab = createMaterialTopTabNavigator();
 

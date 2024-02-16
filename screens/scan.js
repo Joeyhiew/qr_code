@@ -9,7 +9,7 @@ import {
   View,
 } from "react-native";
 import { Camera, CameraView } from "expo-camera/next";
-import { ResultModal } from "../components/ResultModal";
+import { ResultModal } from "../components/resultModal";
 import { ScanBorder } from "../components/scanBorder";
 
 export function Scan(props) {

@@ -10,9 +10,9 @@ import {
   ToastAndroid,
 } from "react-native";
 // import AsyncStorage from "@react-native-async-storage/async-storage";
-import storage from "../Storage";
-import { STORAGE_KEY_HISTORY } from "../Helper";
-import { AppStateContext } from "../Context";
+import storage from "../utils/storage";
+import { STORAGE_KEY_HISTORY } from "../utils/helper";
+import { AppStateContext } from "../utils/context";
 
 // data format:
 // const data = [
