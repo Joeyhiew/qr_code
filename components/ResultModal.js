@@ -65,7 +65,7 @@ export const ResultModal = ({
       animationType="slide"
       transparent={true}
       visible={isModalVisible}
-      statusBarTranslucent={true}
+      // statusBarTranslucent={true}
       onRequestClose={() => {
         closeAndRescan();
       }}

@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { StatusBar } from "expo-status-bar";
 import {
-  Button,
   Image,
   StyleSheet,
   Text,
@@ -119,7 +117,6 @@ export function Scan(props) {
         setModalVisible={setModalVisible}
         setScanned={setScanned}
       />
-      {/* <StatusBar translucent={true} /> */}
     </View>
   );
 }
