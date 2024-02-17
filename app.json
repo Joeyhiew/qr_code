@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive-icon.png",
+        "foregroundImage": "./assets/anImageThatDoesNotExist.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.qrCode.qrCode"
@@ -30,5 +30,8 @@
         "projectId": "f903b8b8-644a-4157-9afd-60d676a593a9"
       }
     }
+  },
+  "react-native-google-mobile-ads": {
+    "android_app_id": "ca-app-pub-1242539372325896~7103046462"
   }
 }
