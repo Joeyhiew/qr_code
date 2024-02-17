@@ -9,7 +9,7 @@
     "splash": {
       "image": "./assets/hourglass.png",
       "resizeMode": "contain",
-      "backgroundColor": "#ffffff"
+      "backgroundColor": "#689287"
     },
     "assetBundlePatterns": ["**/*"],
     "ios": {
@@ -17,7 +17,7 @@
     },
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./assets/adaptive.png",
+        "foregroundImage": "./assets/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
       "package": "com.qrCode.qrCode"
