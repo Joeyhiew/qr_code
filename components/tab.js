@@ -3,6 +3,15 @@ import { Scan } from "../screens/scan";
 import { Settings } from "../screens/settings";
 import { History } from "../screens/history";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
+import {
+  InterstitialAd,
+  TestIds,
+  AdEventType,
+} from "react-native-google-mobile-ads";
+
+const adUnitId = TestIds.INTERSTITIAL;
+
+const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
 const Tab = createBottomTabNavigator();
 
@@ -31,6 +40,24 @@ const CustomTabBarButton = ({ children, onPress }) => (
 );
 
 export const Tabs = () => {
+  const [loaded, setLoaded] = useState(false);
+
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+        interstitial.show();
+      }
+    );
+
+    // Start loading the interstitial straight away
+    interstitial.load();
+
+    // Unsubscribe from events on unmount
+    return unsubscribe;
+  }, []);
+
   return (
     <Tab.Navigator
       screenOptions={{
