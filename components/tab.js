@@ -9,7 +9,7 @@ import {
   AdEventType,
 } from "react-native-google-mobile-ads";
 
-const adUnitId = TestIds.INTERSTITIAL;
+const adUnitId = "ca-app-pub-1242539372325896/3319660225";
 
 const interstitial = InterstitialAd.createForAdRequest(adUnitId);
 
