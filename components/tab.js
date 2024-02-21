@@ -45,21 +45,21 @@ const CustomTabBarButton = ({ children, onPress }) => (
 export const Tabs = () => {
   const [loaded, setLoaded] = useState(false);
 
-  useEffect(() => {
-    const unsubscribe = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {
-        setLoaded(true);
-        interstitial.show();
-      }
-    );
+  // useEffect(() => {
+  //   const unsubscribe = interstitial.addAdEventListener(
+  //     AdEventType.LOADED,
+  //     () => {
+  //       setLoaded(true);
+  //       interstitial.show();
+  //     }
+  //   );
 
-    // Start loading the interstitial straight away
-    interstitial.load();
+  //   // Start loading the interstitial straight away
+  //   interstitial.load();
 
-    // Unsubscribe from events on unmount
-    return unsubscribe;
-  }, []);
+  //   // Unsubscribe from events on unmount
+  //   return unsubscribe;
+  // }, []);
 
   return (
     <Tab.Navigator
