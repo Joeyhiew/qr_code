@@ -15,7 +15,7 @@ export default function App() {
   return (
     <AppStateProvider>
       <NavigationContainer>
-        <StatusBar backgroundColor="white" style="dark" />
+        <StatusBar backgroundColor="white" />
         <Tabs />
       </NavigationContainer>
     </AppStateProvider>

@@ -43,7 +43,7 @@ const CustomTabBarButton = ({ children, onPress }) => (
 );
 
 export const Tabs = () => {
-  const [loaded, setLoaded] = useState(false);
+  // const [loaded, setLoaded] = useState(false);
 
   // useEffect(() => {
   //   const unsubscribe = interstitial.addAdEventListener(
