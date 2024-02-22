@@ -3,18 +3,18 @@ import { Scan } from "../screens/scan";
 import { Settings } from "../screens/settings";
 import { History } from "../screens/history";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
-// import {
-//   InterstitialAd,
-//   TestIds,
-//   AdEventType,
-// } from "react-native-google-mobile-ads";
+import {
+  InterstitialAd,
+  TestIds,
+  AdEventType,
+} from "react-native-google-mobile-ads";
 
-// const adUnitId = "ca-app-pub-1242539372325896/3319660225";
+const adUnitId = "ca-app-pub-1242539372325896/3319660225";
 
-// const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-//   requestNonPersonalizedAdsOnly: true,
-//   keywords: ["fashion"],
-// });
+const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+  requestNonPersonalizedAdsOnly: true,
+  keywords: ["fashion"],
+});
 
 const Tab = createBottomTabNavigator();
 
@@ -43,23 +43,23 @@ const CustomTabBarButton = ({ children, onPress }) => (
 );
 
 export const Tabs = () => {
-  // const [loaded, setLoaded] = useState(false);
+  const [loaded, setLoaded] = useState(false);
 
-  // useEffect(() => {
-  //   const unsubscribe = interstitial.addAdEventListener(
-  //     AdEventType.LOADED,
-  //     () => {
-  //       setLoaded(true);
-  //       interstitial.show();
-  //     }
-  //   );
+  useEffect(() => {
+    const unsubscribe = interstitial.addAdEventListener(
+      AdEventType.LOADED,
+      () => {
+        setLoaded(true);
+        interstitial.show();
+      }
+    );
 
-  //   // Start loading the interstitial straight away
-  //   interstitial.load();
+    // Start loading the interstitial straight away
+    interstitial.load();
 
-  //   // Unsubscribe from events on unmount
-  //   return unsubscribe;
-  // }, []);
+    // Unsubscribe from events on unmount
+    return unsubscribe;
+  }, []);
 
   return (
     <Tab.Navigator
