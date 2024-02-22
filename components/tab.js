@@ -53,10 +53,8 @@ export const Tabs = () => {
     //     interstitial.show();
     //   }
     // );
-
     // Start loading the interstitial straight away
-    interstitial.load();
-
+    // interstitial.load();
     // Unsubscribe from events on unmount
     // return unsubscribe;
   }, []);
