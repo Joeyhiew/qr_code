@@ -46,19 +46,19 @@ export const Tabs = () => {
   const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
-    const unsubscribe = interstitial.addAdEventListener(
-      AdEventType.LOADED,
-      () => {
-        setLoaded(true);
-        interstitial.show();
-      }
-    );
+    // const unsubscribe = interstitial.addAdEventListener(
+    //   AdEventType.LOADED,
+    //   () => {
+    //     setLoaded(true);
+    //     interstitial.show();
+    //   }
+    // );
 
     // Start loading the interstitial straight away
     interstitial.load();
 
     // Unsubscribe from events on unmount
-    return unsubscribe;
+    // return unsubscribe;
   }, []);
 
   return (
