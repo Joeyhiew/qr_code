@@ -7,15 +7,15 @@ import { NavigationContainer } from "@react-navigation/native";
 import storage from "../utils/storage";
 import { getTodayDate, STORAGE_KEY_HISTORY, dateDiff } from "../utils/helper";
 import { AppStateContext } from "../utils/context";
-import {
-  InterstitialAd,
-  TestIds,
-  AdEventType,
-  BannerAd,
-  BannerAdSize,
-} from "react-native-google-mobile-ads";
+// import {
+//   InterstitialAd,
+//   TestIds,
+//   AdEventType,
+//   BannerAd,
+//   BannerAdSize,
+// } from "react-native-google-mobile-ads";
 
-const adUnitId = "ca-app-pub-1242539372325896/3319660225";
+// const adUnitId = "ca-app-pub-1242539372325896/9121230364";
 
 const Tab = createMaterialTopTabNavigator();
 
@@ -78,13 +78,6 @@ export function History() {
             Only keeps your last 10 days history (max 1000 records)
           </Text>
         </View>
-        <BannerAd
-          unitId={adUnitId}
-          size={BannerAdSize.BANNER}
-          requestOptions={{
-            requestNonPersonalizedAdsOnly: true,
-          }}
-        />
         <NavigationContainer independent={true}>
           <Tab.Navigator>
             <Tab.Screen

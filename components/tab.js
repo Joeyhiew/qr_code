@@ -3,18 +3,18 @@ import { Scan } from "../screens/scan";
 import { Settings } from "../screens/settings";
 import { History } from "../screens/history";
 import { StyleSheet, View, Image, Text, TouchableOpacity } from "react-native";
-import {
-  InterstitialAd,
-  TestIds,
-  AdEventType,
-} from "react-native-google-mobile-ads";
+// import {
+//   InterstitialAd,
+//   TestIds,
+//   AdEventType,
+// } from "react-native-google-mobile-ads";
 
-const adUnitId = "ca-app-pub-1242539372325896/3319660225";
+// const adUnitId = "ca-app-pub-1242539372325896/3319660225";
 
-const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
-  requestNonPersonalizedAdsOnly: true,
-  keywords: ["fashion"],
-});
+// const interstitial = InterstitialAd.createForAdRequest(adUnitId, {
+//   requestNonPersonalizedAdsOnly: true,
+//   keywords: ["fashion"],
+// });
 
 const Tab = createBottomTabNavigator();
 

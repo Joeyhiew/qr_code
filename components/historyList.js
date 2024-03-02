@@ -140,7 +140,6 @@ const styles = StyleSheet.create({
     gap: 16,
     alignItems: "center",
     backgroundColor: "#f6f6f6",
-    // flex: 1,
     height: "80%",
 
     paddingTop: 24,
@@ -178,7 +177,6 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "center",
     alignItems: "center",
-    // paddingTop: 100,
   },
   emptyText: {
     color: "#C0C0C0",

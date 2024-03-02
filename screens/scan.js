@@ -75,20 +75,10 @@ export function Scan(props) {
         onBarcodeScanned={scanned ? undefined : handleBarCodeScanned}
         style={StyleSheet.absoluteFillObject}
       ></CameraView>
-      {/* display text */}
       <View style={styles.display}>
         <Text style={styles.displayText}>Scan a QR code</Text>
       </View>
       <ScanBorder />
-      {/* {scanned && (
-        <Button
-          title="Tap to scan again"
-          onPress={() => {
-            setScanned(false);
-          }}
-        />
-      )} */}
-      {/* flashlight button */}
       <TouchableOpacity
         style={styles.flashlightButton}
         onPress={handleFlashlightClicked}
@@ -100,17 +90,6 @@ export function Scan(props) {
           />
         </View>
       </TouchableOpacity>
-      {/* <TouchableOpacity
-        style={styles.cancelButton}
-        onPress={() => props.navigation.goBack(null)}
-      >
-        <View style={styles.viewCancel}>
-          <Image
-            source={require("../assets/cancel.png")}
-            style={styles.cancelImage}
-          />
-        </View>
-      </TouchableOpacity> */}
       <ResultModal
         data={scanData}
         isModalVisible={isModalVisible}

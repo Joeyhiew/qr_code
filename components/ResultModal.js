@@ -65,7 +65,6 @@ export const ResultModal = ({
       animationType="slide"
       transparent={true}
       visible={isModalVisible}
-      // statusBarTranslucent={true}
       onRequestClose={() => {
         closeAndRescan();
       }}
@@ -109,7 +108,6 @@ export const ResultModal = ({
                     }}
                   />
                 </View>
-                {/* <Text style={styles.modalHeaderCloseText}>x</Text> */}
               </TouchableOpacity>
             </View>
             <View style={styles.modalContent}>
@@ -153,7 +151,6 @@ const styles = StyleSheet.create({
     backgroundColor: "white",
     borderRadius: 20,
     padding: 35,
-    // alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -183,7 +180,6 @@ const styles = StyleSheet.create({
   modalHeader: {
     flexDirection: "row",
   },
-  /* The header takes up all the vertical space not used by the close button. */
   modalHeaderContent: {
     display: "flex",
     flexDirection: "row",
